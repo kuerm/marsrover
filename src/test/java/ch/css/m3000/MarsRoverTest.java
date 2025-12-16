@@ -49,6 +49,7 @@ class MarsRoverTest {
     @ParameterizedTest
     @CsvSource({
             "NORTH, l, WEST",
+            "NORTH, ll, SOUTH",
     })
     void turn(Direction startingDirection, String commands, Direction expectedDirection) {
         MarsRover sut = new MarsRover(new Position(5, 5), startingDirection);
