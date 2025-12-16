@@ -15,4 +15,16 @@ class MarsRoverTest {
         assertThat(actualDirection).isEqualTo(Direction.NORTH);
         assertThat(actualPosition).isEqualTo(new Position(2, 3));
     }
+
+    @Test
+    void anotherInitialStartingPosition() {
+        MarsRover sut = new MarsRover(new Position(4, 5), Direction.WEST);
+
+        Direction actualDirection = sut.direction();
+        Position actualPosition = sut.position();
+
+        assertThat(actualDirection).isEqualTo(Direction.WEST);
+        assertThat(actualPosition).isEqualTo(new Position(4, 5));
+
+    }
 }
