@@ -44,6 +44,19 @@ class MarsRoverTest {
 
         Position actualPosition = actual.position();
         assertThat(actualPosition).isEqualTo(new Position(expectingPositionX, expectingPositionY));
+    }
+
+    @ParameterizedTest
+    @CsvSource({
+            "NORTH, l, WEST",
+    })
+    void turn(Direction startingDirection, String commands, Direction expectedDirection) {
+        MarsRover sut = new MarsRover(new Position(5, 5), startingDirection);
+
+        MarsRover actual = sut.turn(commands);
+
+        Direction actualDirection = actual.direction();
+        assertThat(actualDirection).isEqualTo(expectedDirection);
 
     }
 }

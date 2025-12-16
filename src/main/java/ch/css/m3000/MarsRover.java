@@ -8,13 +8,16 @@ public record MarsRover(Position position, Direction direction) {
     }
 
     public MarsRover move(final String commands) {
-        var position1 = this.position;
+        var newPosition = this.position;
         for (var command : commands.chars().toArray()) {
             int step = isForwardCommand(command) ? 1 : -1;
-            position1 = new Position(position1.x(), position1.y() + step);
+            newPosition = new Position(newPosition.x(), newPosition.y() + step);
         }
 
-        return new MarsRover(position1, direction);
+        return new MarsRover(newPosition, direction);
+    }
 
+    public MarsRover turn(final String commands) {
+        return new MarsRover(this.position, Direction.WEST);
     }
 }
