@@ -29,18 +29,9 @@ class MarsRoverTest {
         assertThat(actualPosition).isEqualTo(new Position(4, 5));
     }
 
-    @Test
-    void moveWhenForwardThenRoverIsOnePositionAhead() {
-        MarsRover sut = new MarsRover(new Position(1, 1), Direction.NORTH);
-
-        sut.move("f");
-
-        Position actualPosition = sut.position();
-        assertThat(actualPosition).isEqualTo(new Position(1, 2));
-    }
-
     @ParameterizedTest
     @CsvSource({
+            "1, 1, NORTH, f, 1, 2",
             "1, 1, NORTH, ff, 1, 3"
     })
     void move(int startingX, int startingY, Direction startingDirection, String commands, int expectingPositionX, int expectingPositionY) {
