@@ -25,6 +25,15 @@ class MarsRoverTest {
 
         assertThat(actualDirection).isEqualTo(Direction.WEST);
         assertThat(actualPosition).isEqualTo(new Position(4, 5));
+    }
 
+    @Test
+    void moveWhenForwardThenRoverIsOnePositionAhead() {
+        MarsRover sut = new MarsRover(new Position(1, 1), Direction.NORTH);
+
+        sut.move("f");
+
+        Position actualPosition = sut.position();
+        assertThat(actualPosition).isEqualTo(new Position(1, 2));
     }
 }
