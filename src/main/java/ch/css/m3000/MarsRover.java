@@ -2,7 +2,7 @@ package ch.css.m3000;
 
 public class MarsRover {
     private final Direction currentDirection;
-    private Position currentPosition;
+    private final Position currentPosition;
 
     public MarsRover(final Position position, final Direction direction) {
         this.currentPosition = position;
@@ -17,10 +17,13 @@ public class MarsRover {
         return currentPosition;
     }
 
-    public void move(final String commands) {
-        commands.chars().forEach(c -> {
-            this.currentPosition = new Position(1, this.currentPosition.y() + 1);
-        });
+    public MarsRover move(final String commands) {
+        var position1 = this.currentPosition;
+        for (var c : commands.chars().toArray()) {
+            position1 = new Position(position1.x(), position1.y() + 1);
+        }
+
+        return new MarsRover(position1, currentDirection);
 
     }
 }

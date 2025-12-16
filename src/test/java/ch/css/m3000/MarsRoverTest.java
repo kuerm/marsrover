@@ -38,9 +38,9 @@ class MarsRoverTest {
     void move(int startingX, int startingY, Direction startingDirection, String commands, int expectingPositionX, int expectingPositionY) {
         MarsRover sut = new MarsRover(new Position(startingX, startingY), startingDirection);
 
-        sut.move(commands);
+        MarsRover actual = sut.move(commands);
 
-        Position actualPosition = sut.position();
+        Position actualPosition = actual.position();
         assertThat(actualPosition).isEqualTo(new Position(expectingPositionX, expectingPositionY));
 
     }
