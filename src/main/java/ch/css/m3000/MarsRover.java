@@ -18,11 +18,9 @@ public class MarsRover {
     }
 
     public void move(final String commands) {
-        if (commands.equals("f")) {
-            this.currentPosition = new Position(1, 2);
-            return;
-        }
+        commands.chars().forEach(c -> {
+            this.currentPosition = new Position(1, this.currentPosition.y() + 1);
+        });
 
-        this.currentPosition = new Position(1, 3);
     }
 }
