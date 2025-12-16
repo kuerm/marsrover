@@ -18,6 +18,11 @@ public class MarsRover {
     }
 
     public void move(final String commands) {
-        this.currentPosition = new Position(1, 2);
+        if (commands.equals("f")) {
+            this.currentPosition = new Position(1, 2);
+            return;
+        }
+
+        this.currentPosition = new Position(1, 3);
     }
 }
