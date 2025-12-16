@@ -18,9 +18,10 @@ public record MarsRover(Position position, Direction direction) {
     }
 
     public MarsRover turn(final String commands) {
-        if (commands.equals("l")) {
-            return new MarsRover(this.position, Direction.WEST);
+        var currentDirection = direction;
+        for (var command : commands.chars().toArray()) {
+            currentDirection = currentDirection.turnLeft();
         }
-        return new MarsRover(this.position, Direction.SOUTH);
+        return new MarsRover(this.position, currentDirection);
     }
 }
