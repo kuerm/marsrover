@@ -34,7 +34,8 @@ class MarsRoverTest {
             "1, 1, NORTH, f, 1, 2",
             "1, 1, NORTH, ff, 1, 3",
             "1, 1, NORTH, fff, 1, 4",
-            "1, 1, NORTH, b, 1, 0"
+            "1, 1, NORTH, b, 1, 0",
+            "3, 6, NORTH, bbbf, 3, 4",
     })
     void move(int startingX, int startingY, Direction startingDirection, String commands, int expectingPositionX, int expectingPositionY) {
         MarsRover sut = new MarsRover(new Position(startingX, startingY), startingDirection);
